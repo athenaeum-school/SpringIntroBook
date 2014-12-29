@@ -31,12 +31,12 @@ public class AuthorRestController {
 
 	@RequestMapping(method = RequestMethod.POST)
 	public Author postAuthor(@RequestBody Author author) {
+		System.out.println(author);
 		return authorService.create(author);
 	}
 
 	@RequestMapping(value = "{id}", method = RequestMethod.PUT)
-	public Author putAuthor(@PathVariable long id,
-			@RequestBody Author author) {
+	public Author putAuthor(@PathVariable long id, @RequestBody Author author) {
 		author.setAuthorId(id);
 		return authorService.update(author);
 	}
