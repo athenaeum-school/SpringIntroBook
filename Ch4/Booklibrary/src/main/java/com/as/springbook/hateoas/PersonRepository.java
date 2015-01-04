@@ -1,4 +1,4 @@
-package com.as.springbook.repository;
+package com.as.springbook.hateoas;
 
 import java.util.List;
 
