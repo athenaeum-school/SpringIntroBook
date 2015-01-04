@@ -1,0 +1,30 @@
+div.container#bookApp
+	h2 ブック検索システム
+	div.col-xs-12
+		form#searchBook(action='#')
+			fieldset
+				div.form-group
+					label.col-sm-2.col-xs-12.control-label(for=search) ブック検索
+					div.col-sm-5.col-xs-6
+						input#title.form-control(type='text')
+					div.col-sm-2.col-xs-2		
+						button#search.btn.btn-primary(type=submit) 検索
+					div.col-sm-3.col-xs-4
+						button#allBook.btn.btn-success(type=submit) 全件表示
+		hr
+		div#resultSearch
+			p 検索結果:&nbsp;
+				span.text-danger
+		hr
+		legend ブック一覧
+		div#bookList.table-responsive
+			table.table.table.table-striped.table-bordered
+				thead
+					tr
+						th タイトル
+						th 価格
+						th(colspan=2) 著者名
+				tbody
+		div.text-center
+			ul.pagination#pagination
+				
