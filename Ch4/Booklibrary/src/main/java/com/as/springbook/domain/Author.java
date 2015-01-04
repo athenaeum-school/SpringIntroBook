@@ -1,6 +1,9 @@
 package com.as.springbook.domain;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -22,12 +25,14 @@ import lombok.ToString;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name = "authors")
+@Table(name = "author")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(exclude = "books")
 public class Author {
+
+
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -35,12 +40,11 @@ public class Author {
 
 	private String firstName;
 
-	@Column(name = "last_name")
 	private String lastName;
 
 	@JsonIgnore
-	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinColumn(name = "authorId")
-	private List<Book> books;
+	@ManyToMany(mappedBy = "authors",cascade=CascadeType.ALL)
+	private List<Book> books = new ArrayList<Book>();
+	
 
 }

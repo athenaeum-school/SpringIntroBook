@@ -1,12 +1,20 @@
 package com.as.springbook.domain;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -16,7 +24,7 @@ import lombok.NoArgsConstructor;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name = "books")
+@Table(name = "book")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -30,9 +38,9 @@ public class Book {
 
 	private int price;
 
-	@JsonIgnore
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "authorId")
-	private Author author;
+	@ManyToMany(cascade=CascadeType.ALL)
+	private List<Author> authors = new ArrayList<Author>();
+	
 
+	
 }
