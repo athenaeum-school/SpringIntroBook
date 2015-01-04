@@ -1,4 +1,4 @@
-package com.as.springbook.web;
+package com.as.springbook.hateoas;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.as.springbook.domain.NewBook;
-import com.as.springbook.repository.NewBookRepository;
-import com.as.springbook.repository.PersonRepository;
 
 @RestController
 @RequestMapping("person/{id}/newBook")

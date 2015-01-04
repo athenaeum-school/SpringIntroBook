@@ -1,6 +1,7 @@
 package com.as.springbook.web;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -36,7 +37,10 @@ public class BookRestController {
 	@RequestMapping(method = RequestMethod.POST)
 	public Book postBook(@RequestBody Book book,@PathVariable long authorId) {
 		/*book.setAuthor(authorService.findOne(authorId));
+		 * 
 		return bookService.create(book);*/
+		/*book.getAuthors().add(authorService.findOne(authorId));*/
+		
 		return bookService.create(book, authorId);
 	}
 

@@ -20,10 +20,11 @@ public class BooksRestController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public Page<Book> getAllBooks(
+			@RequestParam(value = "search", required=false,defaultValue="") String search,
 			@RequestParam(value = "page", required = false, defaultValue = "0") String page,
 			@RequestParam(value = "size", required = false, defaultValue = "5") String size,
 			@RequestParam(value = "sort", required = false, defaultValue = "") String sortStr,
 			Sort sort) {
-		return bookService.findAll(page, size, sortStr);
+		return bookService.findAll(search,page, size, sortStr);
 	}
 }
