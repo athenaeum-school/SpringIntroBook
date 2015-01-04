@@ -1,6 +1,7 @@
 package com.as.springbook.service;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -42,7 +43,7 @@ public class BookServiceImpl implements BookService {
 
 	@Override
 	public Book create(Book book, long authorId) {
-		book.setAuthor(authorRepository.findOne(authorId));
+		book.getAuthors().add(authorRepository.findOne(authorId));
 		return bookRepository.save(book);
 	}
 
@@ -62,7 +63,8 @@ public class BookServiceImpl implements BookService {
 	}
 
 	@Override
-	public Page<Book> findAll(String page, String size, String sortStr) {
+	public Page<Book> findAll(String search, String page, String size,
+			String sortStr) {
 		Sort sort;
 		String title = "title";
 		if (sortStr.equals("asc"))
@@ -71,8 +73,9 @@ public class BookServiceImpl implements BookService {
 			sort = new Sort(Direction.DESC, title);
 		else
 			sort = null;
-		return bookRepository.findAll(new PageRequest(Integer.valueOf(page),
-				Integer.valueOf(size), sort));
+		return bookRepository.findByTitleLike("%" + search + "%",
+				new PageRequest(Integer.valueOf(page), Integer.valueOf(size),
+						sort));
 
 	}
 

@@ -30,15 +30,16 @@ public class BookServiceImplTest {
 
 	@Test
 	public void testFindOne() {
-		/*System.out.println(authorService.findAll());
-		System.out.println(bookService.findAll());*/
+		System.out.println(authorService.findAll());
+		System.out.println(bookService.findAll());
+		System.out.println(authorService.findOne(1));
 	}
 	
 	
 
 	@Test
 	public void testBookCreate() {
-		Author author = new Author();
+	/*	Author author = new Author();
 		author.setAuthorId(1);
 		author.setFirstName("abc");
 		author.setLastName("xyz");
@@ -58,7 +59,7 @@ public class BookServiceImplTest {
 		authorService.create(author2);
 		
 		System.out.println(authorService.findOne(2).getBooks());
-		
+		*/
 	}
 
 	@Test

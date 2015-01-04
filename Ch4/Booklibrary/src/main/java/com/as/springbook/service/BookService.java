@@ -1,6 +1,7 @@
 package com.as.springbook.service;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -23,5 +24,5 @@ public interface BookService {
 
 	Page<Book> findAll(Pageable pageable);
 
-	Page<Book> findAll(String page, String size, String sortStr);
+	Page<Book> findAll(String search,String page, String size, String sortStr);
 }
