@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:int="http://www.springframework.org/schema/integration"
+	xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+	xmlns:int-amqp="http://www.springframework.org/schema/integration/amqp"
+	xmlns:int-stream="http://www.springframework.org/schema/integration/stream"
+	xsi:schemaLocation="http://www.springframework.org/schema/integration/stream http://www.springframework.org/schema/integration/stream/spring-integration-stream.xsd
+		http://www.springframework.org/schema/integration/amqp http://www.springframework.org/schema/integration/amqp/spring-integration-amqp.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/rabbit http://www.springframework.org/schema/rabbit/spring-rabbit.xsd
+		http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration-4.1.xsd">
+
+	<int:poller default="true" fixed-delay="1000"></int:poller>
+	<int-amqp:inbound-channel-adapter
+		channel="fromRabbit" queue-names=" blog" connection-factory="connectionFactory" />
+
+	<int:channel id="fromRabbit"></int:channel>
+
+	<int:channel id="json-object"></int:channel>
+	
+	<int:channel id="outChannel">
+	<int:queue capacity="100" />
+	</int:channel>
+
+	<int:channel id="securityOutChannel"></int:channel>
+
+	<int:json-to-object-transformer
+		input-channel="fromRabbit" output-channel="json-object" type="com.as.springbook.domain.Blog"></int:json-to-object-transformer>
+		
+	<int:enricher input-channel="securityOutChannel"
+		output-channel="outChannel" request-channel="customerchannel">
+		</int:enricher>
+
+	<int:service-activator input-channel="json-object"
+		output-channel="securityOutChannel" ref="securityActivator" method="outPrint"></int:service-activator>
+		
+	<bean id="securityActivator" class="com.as.springbook.SecurityActivator"></bean>
+	<bean id="customerActivator" class="com.as.springbook.CustomerActivator"></bean>
+	<rabbit:connection-factory id="connectionFactory"
+		host="localhost" />
+
+	<int:service-activator input-channel="customerchannel"
+		ref="customerActivator" method="customerEnricher"></int:service-activator>
+
+	<int:channel id="customerchannel"></int:channel>
+<!-- 	<int:channel id="toRabbit">
+		<int:queue capacity="100" />
+	</int:channel> -->
+<!-- 	<int:object-to-json-transformer
+		input-channel="object-json" output-channel="toRabbit">
+		</int:object-to-json-transformer>
+	<int-amqp:outbound-channel-adapter
+		channel="toRabbit" amqp-template="amqpTemplate" exchange-name="test.exchange" routing-key="test.binding"></int-amqp:outbound-channel-adapter>
+
+	<rabbit:template id="amqpTemplate" connection-factory="connectionFactory"></rabbit:template>
+	<rabbit:queue name="shipping"></rabbit:queue>
+	<rabbit:direct-exchange name="test.exchange">
+		<rabbit:bindings>
+			<rabbit:binding queue="shipping" key="test.binding"></rabbit:binding>
+		</rabbit:bindings>
+	</rabbit:direct-exchange> -->
+	
+</beans>
