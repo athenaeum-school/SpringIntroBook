@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="NaN">
+    <title>ブログ</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+  </head>
+  <body>
+    <section id="blogApp">
+      <header id="header">
+        <form id="addBlog" action="#">
+          <div>
+            <input id="title" type="text">
+            <textarea id="message" rows="4" cols="40"></textarea>
+            <button id="add">追加</button>
+          </div>
+        </form>
+      </header>
+      <seciton id="main">
+        <div id="blogList"></div>
+      </seciton>
+    </section>
+    <script id="blogtemplate" type="text/template">
+      <div class="view">
+        <ul>
+          <li><%= title %></li>
+          <li><%= message %></li>
+        </ul>
+        <button class="editbutton">編集</button>
+        <button class="delete">削除</button>
+      </div>
+      <input name="title" value="<%= title %>" class="edit">
+      <input name="message" value="<%= message %>" class="edit">
+      <button name="save" class="edit">編集を終了</button>
+      <button name="cancel" class="edit">キャンセル</button>
+    </script>
+    <script type="text/javascript" src="lib/underscore.js"></script>
+    <script type="text/javascript" src="lib/jquery.min.js"></script>
+    <script type="text/javascript" src="lib/backbone.js"></script>
+    <script type="text/javascript" src="src/Blog.js"></script>
+    <script type="text/javascript" src="src/BlogCollection.js"></script>
+    <script type="text/javascript" src="src/BlogView.js"></script>
+    <script type="text/javascript" src="src/BlogListView.js"></script>
+    <script type="text/javascript" src="src/App.js"></script>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+#header {
+  margin-bottom: 50px;
+}
+
+#blogList .edit {
+  display: none;
+}
+#blogList .editing .edit {
+  display: block;
+}
+#blogList .editing .view {
+  display: none;
+}
+#blogList li {
+  list-style-type: none;
+}
