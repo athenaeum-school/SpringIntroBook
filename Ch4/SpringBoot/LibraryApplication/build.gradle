@@ -15,7 +15,9 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
-apply plugin: 'war'
+
+def defaultEncoding = 'UTF-8'
+compileJava { options.encoding = defaultEncoding  }
 
 jar {
 	baseName = 'LibraryApplication'
@@ -39,7 +41,7 @@ dependencies {
 	compile('mysql:mysql-connector-java:5.1.34')
 
 	testCompile("org.springframework.boot:spring-boot-starter-test")
-	providedCompile 'org.projectlombok:lombok:1.14.8'
+	compile 'org.projectlombok:lombok:1.14.8'
 }
 
 eclipse {
