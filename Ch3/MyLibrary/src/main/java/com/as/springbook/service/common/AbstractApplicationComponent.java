@@ -1,3 +1,9 @@
+/**
+ * All Rigths Reserved by Athenaeum Society
+ * 2015-
+ * Written by Masaki Komatsu
+ */
+
 package com.as.springbook.service.common;
 
 import java.io.Serializable;
@@ -12,34 +18,34 @@ public abstract class AbstractApplicationComponent<T extends Serializable> imple
 
     @Override
     public T findOne(final long id) {
-        return getCommonDao().findOne(id);
+        return getCommonRepository().findOne(id);
     }
 
     @Override
     public List<T> findAll() {
-        return getCommonDao().findAll();
+        return getCommonRepository().findAll();
     }
 
     @Override
     public void create(final T entity) {
-        getCommonDao().create(entity);
+        getCommonRepository().create(entity);
     }
 
     @Override
     public T update(final T entity) {
-        return getCommonDao().update(entity);
+        return getCommonRepository().update(entity);
     }
 
     @Override
     public void delete(final T entity) {
-        getCommonDao().delete(entity);
+        getCommonRepository().delete(entity);
     }
 
     @Override
     public void deleteById(final long entityId) {
-        getCommonDao().deleteById(entityId);
+        getCommonRepository().deleteById(entityId);
     }
 
-    protected abstract CommonActions<T> getCommonDao();
+    protected abstract CommonActions<T> getCommonRepository();
 
 }

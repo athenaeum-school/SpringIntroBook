@@ -1,8 +1,15 @@
+/**
+ * All Rigths Reserved by Athenaeum Society
+ * 2015-
+ * Written by Masaki Komatsu
+ */
+
 package com.as.springbook.domain;
 
 import java.io.Serializable;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,24 +20,23 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Id;
 
-import org.hibernate.envers.Audited;
 import org.joda.time.DateTime;
 
 @Entity
 @Table(name="inventory")
-@Audited
-public class InventoryImpl extends BaseComponent implements Inventory, Serializable {
+public class InventoryImpl extends BaseComponent implements Inventory {
 
-	@OneToMany(mappedBy="inventory")
-	private Set<Rental> rentals;
+	@ManyToOne
+	@JoinColumn(name="book_id")
+	private BookImpl book;
 	
 	@ManyToOne
-	@JoinColumn(name="client_id")
-	private Client client;
+	@JoinColumn(name="rental_id")
+	private RentalImpl rental;
 	
 	@ManyToOne
-	@JoinColumn(name="staff_id")
-	private Staff staff;
+	@JoinColumn(name="library_id")
+	private LibraryImpl library;
 	
 	@Column(name="return_date")
 	private DateTime return_date;
@@ -39,19 +45,43 @@ public class InventoryImpl extends BaseComponent implements Inventory, Serializa
 	private DateTime rental_date;
 	
 	public InventoryImpl() {
-		// TODO Auto-generated constructor stub
+		super();
 	}
+
+    public InventoryImpl(final BookImpl book) {
+        super();
+
+        this.book = book;
+    }
 
 	@Override
 	public Boolean isAvailable() {
+		return true;
+	}
+
+	@Override
+	public DateTime getReturnDate() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Boolean getAvailable() {
+	public void setReturnDate() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public DateTime getRentalDate() {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public void setRentalDate() {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 }

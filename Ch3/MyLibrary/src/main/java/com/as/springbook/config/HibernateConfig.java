@@ -16,6 +16,9 @@ import org.springframework.dao.annotation.PersistenceExceptionTranslationPostPro
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.orm.hibernate4.HibernateExceptionTranslator;
+
+import com.as.springbook.repository.BookRepository;
 
 @Configuration
 @EnableTransactionManagement
@@ -63,6 +66,11 @@ public class HibernateConfig {
     @Bean
     public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
         return new PersistenceExceptionTranslationPostProcessor();
+    }
+    
+    @Bean
+    public HibernateExceptionTranslator hibernateExceptionTranslator(){
+    	return new HibernateExceptionTranslator();
     }
 
     final Properties hibernateProperties() {

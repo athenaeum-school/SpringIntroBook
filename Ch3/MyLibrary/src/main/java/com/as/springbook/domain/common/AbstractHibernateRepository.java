@@ -1,3 +1,9 @@
+/**
+ * All Rigths Reserved by Athenaeum Society
+ * 2015-
+ * Written by Masaki Komatsu
+ */
+
 package com.as.springbook.domain.common;
 
 import java.io.Serializable;
@@ -6,6 +12,7 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 @SuppressWarnings("unchecked")
 public abstract class AbstractHibernateRepository<T extends Serializable> implements CommonActions<T> {
@@ -14,11 +21,9 @@ public abstract class AbstractHibernateRepository<T extends Serializable> implem
 
     @Autowired
     private SessionFactory sessionFactory;
-
-    // API
-
-    protected final void setClazz(final Class<T> clazzToSet) {
-    	myClass = clazzToSet;
+    
+    protected final void setClass(final Class<T> myClass) {
+    	this.myClass = myClass;
     }
 
     @Override

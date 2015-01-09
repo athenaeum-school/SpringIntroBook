@@ -5,7 +5,13 @@
  */
 package com.as.springbook.domain;
 
+import java.util.Set;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -15,27 +21,34 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="address")
-public class AddressImpl implements Address {
+public class AddressImpl extends BaseComponent implements Address {
 
-	private Long Id;
+	@Column(name="name")
 	private String name;
+	
+	@Column(name="address")
 	private String address;
+	
+	@Column(name="street")
 	private String street;
+	
+	@Column(name="town")
 	private String town;
+	
+	@Column(name="city")
 	private String city;
+	
+	@Column(name="prefecture")
 	private String prefecture;
 	
-	@Override
-	public Long getId() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void setId(Long id) {
-		// TODO Auto-generated method stub
-		
-	}
+	@OneToMany(targetEntity=ClientImpl.class, mappedBy="address")
+	private Set<ClientImpl> clients;
+	
+	@OneToMany(targetEntity=LibraryImpl.class, mappedBy="address")
+	private Set<LibraryImpl> libraries;
+	
+	@OneToMany(targetEntity=StaffImpl.class, mappedBy="address")
+	private Set<StaffImpl> staffs;
 
 	@Override
 	public String getName() {

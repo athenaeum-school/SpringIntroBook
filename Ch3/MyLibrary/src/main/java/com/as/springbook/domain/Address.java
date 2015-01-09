@@ -1,6 +1,14 @@
+/**
+ * All Rigths Reserved by Athenaeum Society
+ * 2015-
+ * Written by Masaki Komatsu
+ */
+
 package com.as.springbook.domain;
 
-public interface Address {
+import java.io.Serializable;
+
+public interface Address extends Serializable {
 
 	 /**
      * <p>Address is a collection of fields share by client, 
