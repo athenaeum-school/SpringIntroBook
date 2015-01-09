@@ -13,4 +13,5 @@ import com.as.springbook.domain.Author;
 @Repository
 public interface AuthorRepository extends JpaRepository<Author, Long> {
 
+	Author findByFirstName(String firstName);
 }
