@@ -29,18 +29,21 @@ public class BookController {
 	@Autowired
 	private AuthorService authorService;
 
-	@RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE
+			+ ";charset=utf-8")
 	public @ResponseBody List<Book> getBooks(@PathVariable long authorId) {
 		return authorService.findOne(authorId).getBooks();
 	}
 
-	@RequestMapping(value = "{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE
+			+ ";charset=utf-8")
 	public @ResponseBody Book getBook(@PathVariable long id,
 			@PathVariable long authorId) {
 		return bookService.findOne(id);
 	}
 
-	@RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE
+			+ ";charset=utf-8")
 	public @ResponseBody Book postBook(@RequestBody Book book,
 			@PathVariable long authorId) {
 		/*
@@ -53,7 +56,8 @@ public class BookController {
 		return bookService.create(book, authorId);
 	}
 
-	@RequestMapping(value = "{id}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "{id}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE
+			+ ";charset=utf-8")
 	public @ResponseBody Book putBook(@PathVariable long id,
 			@RequestBody Book book) {
 		book.setBookId(id);

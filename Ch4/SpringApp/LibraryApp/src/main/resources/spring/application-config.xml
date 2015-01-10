@@ -9,38 +9,46 @@
 		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-	<context:component-scan base-package="com.as.springbook.">
-		<context:exclude-filter type="annotation"
-			expression="org.springframework.stereotype.Controller" />
-	</context:component-scan>
 
+	<context:component-scan base-package="com.as.springbook">
+		<context:exclude-filter expression="org.springframework.stereotype.Controller"
+			type="annotation" />
+	</context:component-scan>
 	<jpa:repositories base-package="com.as.springbook.repository"></jpa:repositories>
 
 	<bean class="org.springframework.orm.jpa.JpaTransactionManager"
 		id="transactionManager">
-		<property name="entityManagerFactory" ref="entityManagerFactory">
-		</property>
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
+
 	<bean
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
 		id="entityManagerFactory">
-		<property name="persistenceUnitName" value="persistenceUnit"></property>
-		<property name="dataSource" ref="dataSource"></property>
+		<property name="persistenceUnitName" value="persistenceUnit" />
+		<property name="dataSource" ref="dataSource" />
 	</bean>
 
 	<tx:annotation-driven transaction-manager="transactionManager" />
 
+
 	<bean
 		class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"></bean>
 
-	<context:property-placeholder location="classpath:spring/database.properties" />
+		<context:property-placeholder location="classpath:spring/database.properties" />
 
-	<bean class="org.apache.commons.dbcp.BasicDataSource"
-		destroy-method="close" id="dataSource">
-		<property name="driverClassName" value="${database.driverClassName}"></property>
-		<property name="url" value="${database.url}"></property>
-		<property name="username" value="${database.username}"></property>
-		<property name="password" value="${database.password}"></property>
-	</bean>
+		<bean class="org.apache.commons.dbcp.BasicDataSource"
+			destroy-method="close" id="dataSource">
+			<property name="driverClassName" value="${database.driverClassName}" />
+			<property name="url" value="${database.url}" />
+			<property name="username" value="${database.username}" />
+			<property name="password" value="${database.password}" />
+			<property name="testOnBorrow" value="true" />
+			<property name="testOnReturn" value="true" />
+			<property name="testWhileIdle" value="true" />
+			<property name="timeBetweenEvictionRunsMillis" value="1800000" />
+			<property name="numTestsPerEvictionRun" value="3" />
+			<property name="minEvictableIdleTimeMillis" value="1800000" />
+		</bean>
+
 
 </beans>

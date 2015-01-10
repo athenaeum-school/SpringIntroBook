@@ -76,9 +76,7 @@ public class BookServiceImpl implements BookService {
 			sort = new Sort(Direction.DESC, title);
 		else
 			sort = null;
-		
-		
-		return  bookRepository.findDistinctByTitleContainingOrAuthorsFirstNameContaining(search,search,
+		return bookRepository.findByTitleOrAuthorFirstNameOrAuthorLastName(search, 
 				new PageRequest(Integer.valueOf(page), Integer.valueOf(size),
 						sort));
 		

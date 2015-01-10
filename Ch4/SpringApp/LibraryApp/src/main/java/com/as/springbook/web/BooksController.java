@@ -4,9 +4,6 @@
  */
 package com.as.springbook.web;
 
-import java.util.HashSet;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.MediaType;
@@ -30,7 +27,7 @@ public class BooksController {
 	@Autowired
 	private BookRepository bookRepository;
 
-	@RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
 	public @ResponseBody Page<Book> getAllBooks(
 			@RequestParam(value = "search", required = false, defaultValue = "") String search,
 			@RequestParam(value = "page", required = false, defaultValue = "0") String page,
