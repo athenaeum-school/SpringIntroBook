@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="NaN">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>LibraryApplication</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+  </head>
+  <body>
+    <div id="bookApp" class="container">
+      <h2>ブック検索システム</h2>
+      <div class="col-xs-12">
+        <form id="searchBook" action="#">
+          <fieldset>
+            <div class="form-group">
+              <label class="col-sm-2 col-xs-12 control-label">ブック検索</label>
+              <div class="col-sm-5 col-xs-6">
+                <input id="title" type="text" class="form-control">
+              </div>
+              <div class="col-sm-2 col-xs-2">		
+                <button id="search" class="btn btn-primary">検索</button>
+              </div>
+              <div class="col-sm-3 col-xs-4">
+                <button id="allBook" class="btn btn-success">全件表示</button>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+        <hr>
+        <div id="resultSearch">
+          <p>検索結果:&nbsp;<span class="text-danger"></span></p>
+        </div>
+        <hr>
+        <legend>ブック一覧</legend>
+        <div id="bookList" class="table-responsive">
+          <table class="table table table-striped table-bordered">
+            <thead>
+              <tr>
+                <th>タイトル</th>
+                <th>価格</th>
+                <th colspan="2">著者名</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="text-center">
+          <ul id="pagination" class="pagination"></ul>
+        </div>
+      </div>
+    </div>
+    <script id="booktemplate" type="text/template">
+      <td><%= title %></td>
+      <td><%= price %>円</td>
+    </script>
+    <script id="authortemplate" type="text/template"><%= firstName %><%= lastName %></script>
+    <script type="text/javascript" src="lib/underscore-min.js"></script>
+    <script type="text/javascript" src="lib/jquery.min.js"></script>
+    <script type="text/javascript" src="lib/backbone.js"></script>
+    <script type="text/javascript" src="lib/backbone-relational.js"></script>
+    <script type="text/javascript" src="src/Model.js"></script>
+    <script type="text/javascript" src="src/Collection.js"></script>
+    <script type="text/javascript" src="src/BookView.js"></script>
+    <script type="text/javascript" src="src/authorView.js"></script>
+    <script type="text/javascript" src="src/AppView.js"></script>
+    <script type="text/javascript" src="src/AppRouter.js"></script>
+    <script type="text/javascript" src="src/App.js"></script>
+  </body>
+</html>

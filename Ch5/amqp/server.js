@@ -1,20 +1,18 @@
-var Blog, BlogModel, allowCrossDomain, amqp, app, application_root, express, mongoose, path, port, when1;
+var application_root = __dirname;
 
-application_root = __dirname;
+var express = require('express');
 
-express = require('express');
+var path = require('path');
 
-path = require('path');
+var mongoose = require('mongoose');
 
-mongoose = require('mongoose');
+var app = express();
 
-app = express();
+var amqp = require('amqplib');
 
-amqp = require('amqplib');
+var when = require('when');
 
-when1 = require('when');
-
-allowCrossDomain = function(req, res, next) {
+var allowCrossDomain = function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
   res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
@@ -40,12 +38,12 @@ app.configure(function() {
 
 mongoose.connect('mongodb://localhost/VeggieMarket_blog');
 
-Blog = new mongoose.Schema({
+var Blog = new mongoose.Schema({
   title: String,
   message: String
 });
 
-BlogModel = mongoose.model('blog', Blog);
+var BlogModel = mongoose.model('blog', Blog);
 
 app.get('/api/blogs', function(request, response) {
   return BlogModel.find(function(err, blogs) {
@@ -68,17 +66,17 @@ app.get('/api/blogs/:id', function(request, response) {
 });
 
 app.post('/api/blogs', function(request, response) {
-  var blog;
-  blog = new BlogModel({
+  
+  var blog = new BlogModel({
     title: request.body.title,
     message: request.body.message
   });
   amqp.connect('amqp://localhost').then(function(conn) {
-    return when1(conn.createChannel().then(function(ch) {
-      var msg, ok, q;
-      q = 'blog';
-      msg = JSON.stringify(blog);
-      ok = ch.assertQueue(q, {
+    return when(conn.createChannel().then(function(ch) {
+      
+      var q = 'blog';
+      var msg = JSON.stringify(blog);
+      var ok = ch.assertQueue(q, {
         durable: false
       });
       return ok.then(function(_qok) {
