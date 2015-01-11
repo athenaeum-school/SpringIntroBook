@@ -37,15 +37,15 @@ public class AuthorController {
 		return authorService.findOne(id);
 	}
 
-	@RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE
-			+ ";charset=utf-8")
+	@RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE
+			+ ";charset=utf-8", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody Author postAuthor(@RequestBody Author author) {
 		System.out.println(author);
 		return authorService.create(author);
 	}
 
-	@RequestMapping(value = "{id}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE
-			+ ";charset=utf-8")
+	@RequestMapping(value = "{id}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE
+			+ ";charset=utf-8", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody Author putAuthor(@PathVariable long id,
 			@RequestBody Author author) {
 		author.setAuthorId(id);

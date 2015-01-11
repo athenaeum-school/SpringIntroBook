@@ -42,8 +42,8 @@ public class BookController {
 		return bookService.findOne(id);
 	}
 
-	@RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE
-			+ ";charset=utf-8")
+	@RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE
+			+ ";charset=utf-8", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody Book postBook(@RequestBody Book book,
 			@PathVariable long authorId) {
 		/*
@@ -56,12 +56,11 @@ public class BookController {
 		return bookService.create(book, authorId);
 	}
 
-	@RequestMapping(value = "{id}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE
-			+ ";charset=utf-8")
+	@RequestMapping(value = "{id}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE
+			+ ";charset=utf-8", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody Book putBook(@PathVariable long id,
-			@RequestBody Book book) {
-		book.setBookId(id);
-		return bookService.update(book);
+			@PathVariable long authorId, @RequestBody Book book) {
+		return bookService.update(book, id, authorId);
 	}
 
 	@RequestMapping(value = "{id}", method = RequestMethod.DELETE)

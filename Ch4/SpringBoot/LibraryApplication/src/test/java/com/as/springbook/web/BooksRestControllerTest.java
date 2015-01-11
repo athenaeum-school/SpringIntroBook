@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.IntegrationTest;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,6 +27,7 @@ import com.as.springbook.LibraryApp;
 import com.as.springbook.domain.Author;
 import com.as.springbook.domain.Book;
 import com.as.springbook.repository.AuthorRepository;
+import com.as.springbook.repository.BookRepository;
 import com.as.springbook.service.AuthorService;
 import com.as.springbook.service.BookService;
 
@@ -34,6 +36,7 @@ import com.as.springbook.service.BookService;
 @WebAppConfiguration
 @IntegrationTest({ "spring.datasource.initialize=false", "server.port=8000" })
 @Transactional
+@TransactionConfiguration(defaultRollback=false)
 public class BooksRestControllerTest {
 
 	@Autowired
@@ -41,9 +44,15 @@ public class BooksRestControllerTest {
 
 	@Autowired
 	private AuthorService authorService;
+	
+	@Autowired
+	private AuthorRepository authorRepository;
 
 	@Autowired
 	private BookService bookService;
+	
+	@Autowired
+	private BookRepository bookRepository;
 
 	private MockMvc mockMvc;
 
@@ -55,7 +64,7 @@ public class BooksRestControllerTest {
 	@Before
 	public void setup() {
 		mockMvc = webAppContextSetup(wac).build();
-		author = new Author();
+		/*author = new Author();
 		author.setAuthorId(1);
 		author.setFirstName("yamamoto");
 		author.setLastName("itirou");
@@ -66,7 +75,32 @@ public class BooksRestControllerTest {
 		book = new Book(1, "初めてのjava", 2000, Arrays.asList(author));
 		book2 = new Book(2, "初めてのspring", 1500, Arrays.asList(author, author2));
 		bookService.create(book);
-		bookService.create(book2);
+		bookService.create(book2);*/
+		
+		authorRepository.deleteAll();
+		author = new Author();
+		author.setAuthorId(1);
+		author.setFirstName("yamamoto");
+		author.setLastName("itirou");
+		authorService.create(author);
+		book = new Book();
+		book.setTitle("初めてのjava");
+		book.setPrice(2000);
+		bookService.create(book,
+				authorRepository.findByFirstName("yamamoto").getAuthorId());
+
+		author2 = new Author();
+		author2.setFirstName("kaneko");
+		author2.setLastName("keisuke");
+		authorService.create(author2);
+		book2 = new Book();
+		book2.setTitle("初めてのspring");
+		book2.setPrice(1500);
+		bookService.create(book2,
+				authorRepository.findByFirstName("yamamoto").getAuthorId());
+		bookService.update(null, bookRepository.findByTitle("初めてのspring")
+				.get(0).getBookId(),
+				authorRepository.findByFirstName("kaneko").getAuthorId());
 	}
 
 	@Test

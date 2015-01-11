@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.as.springbook.web.BookControllerTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2015-01-11T06:44:46" hostname="yuraku-PC" time="0.098">
+  <properties/>
+  <testcase name="testGetBooks" classname="com.as.springbook.web.BookControllerTest" time="0.037"/>
+  <testcase name="testPutBook" classname="com.as.springbook.web.BookControllerTest" time="0.027"/>
+  <testcase name="testGetBook" classname="com.as.springbook.web.BookControllerTest" time="0.012"/>
+  <testcase name="testPostBook" classname="com.as.springbook.web.BookControllerTest" time="0.019"/>
+  <system-out><![CDATA[INFO  WebTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+INFO  WebTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@5ec4d737, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@90599f9, org.springframework.test.context.support.DirtiesContextTestExecutionListener@1fefe8f5, org.springframework.test.context.transaction.TransactionalTestExecutionListener@21879e6a, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@59829802]
+INFO  TransactionContext - Began transaction (1) for test context [DefaultTestContext@7c6d189a testClass = BookControllerTest, testInstance = com.as.springbook.web.BookControllerTest@1ca5efa2, testMethod = testGetBooks@BookControllerTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@14c4692 testClass = BookControllerTest, locations = '{file:src/main/resources/spring/application-config.xml, file:src/main/webapp/WEB-INF/mvc-config.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@4b6652c7]; rollback [false]
+INFO  MockServletContext - Initializing Spring FrameworkServlet ''
+INFO  TestDispatcherServlet - FrameworkServlet '': initialization started
+INFO  TestDispatcherServlet - FrameworkServlet '': initialization completed in 2 ms
+---------------------------------------------
+[]
+
+MockHttpServletRequest:
+         HTTP Method = GET
+         Request URI = /as/authors/5/books
+          Parameters = {}
+             Headers = {}
+
+             Handler:
+                Type = com.as.springbook.web.BookController
+              Method = public java.util.List<com.as.springbook.domain.Book> com.as.springbook.web.BookController.getBooks(long)
+
+               Async:
+   Was async started = false
+        Async result = null
+
+  Resolved Exception:
+                Type = null
+
+        ModelAndView:
+           View name = null
+                View = null
+               Model = null
+
+            FlashMap:
+
+MockHttpServletResponse:
+              Status = 200
+       Error message = null
+             Headers = {Content-Type=[application/json;charset=utf-8]}
+        Content type = application/json;charset=utf-8
+                Body = [{"bookId":1,"title":"初めてのjava","price":2000,"authors":[{"authorId":5,"firstName":"yamamoto","lastName":"itirou"}]},{"bookId":2,"title":"初めてのspring","price":1500,"authors":[{"authorId":5,"firstName":"yamamoto","lastName":"itirou"},{"authorId":6,"firstName":"kaneko","lastName":"keisuke"}]}]
+       Forwarded URL = null
+      Redirected URL = null
+             Cookies = []
+INFO  TransactionContext - Committed transaction for test context [DefaultTestContext@7c6d189a testClass = BookControllerTest, testInstance = com.as.springbook.web.BookControllerTest@1ca5efa2, testMethod = testGetBooks@BookControllerTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@14c4692 testClass = BookControllerTest, locations = '{file:src/main/resources/spring/application-config.xml, file:src/main/webapp/WEB-INF/mvc-config.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]].
+INFO  TransactionContext - Began transaction (1) for test context [DefaultTestContext@7c6d189a testClass = BookControllerTest, testInstance = com.as.springbook.web.BookControllerTest@274d4ee8, testMethod = testPutBook@BookControllerTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@14c4692 testClass = BookControllerTest, locations = '{file:src/main/resources/spring/application-config.xml, file:src/main/webapp/WEB-INF/mvc-config.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@4b6652c7]; rollback [false]
+INFO  MockServletContext - Initializing Spring FrameworkServlet ''
+INFO  TestDispatcherServlet - FrameworkServlet '': initialization started
+INFO  TestDispatcherServlet - FrameworkServlet '': initialization completed in 2 ms
+---------------------------------------------
+[Book(bookId=1, title=初めてのjava, price=2000, authors=[Author(authorId=5, firstName=yamamoto, lastName=itirou)]), Book(bookId=2, title=初めてのspring, price=1500, authors=[Author(authorId=5, firstName=yamamoto, lastName=itirou), Author(authorId=6, firstName=kaneko, lastName=keisuke)])]
+--------------Book(bookId=0, title=BackBoneの基礎, price=1800, authors=[Author(authorId=5, firstName=yamamoto, lastName=itirou), Author(authorId=6, firstName=kaneko, lastName=keisuke)])
+Book(bookId=2, title=BackBoneの基礎, price=1800, authors=[Author(authorId=5, firstName=yamamoto, lastName=itirou), Author(authorId=6, firstName=kaneko, lastName=keisuke)])----------------
+
+MockHttpServletRequest:
+         HTTP Method = PUT
+         Request URI = /as/authors/1/books/2
+          Parameters = {}
+             Headers = {Content-Type=[application/json]}
+
+             Handler:
+                Type = com.as.springbook.web.BookController
+              Method = public com.as.springbook.domain.Book com.as.springbook.web.BookController.putBook(long,long,com.as.springbook.domain.Book)
+
+               Async:
+   Was async started = false
+        Async result = null
+
+  Resolved Exception:
+                Type = null
+
+        ModelAndView:
+           View name = null
+                View = null
+               Model = null
+
+            FlashMap:
+
+MockHttpServletResponse:
+              Status = 200
+       Error message = null
+             Headers = {Content-Type=[application/json;charset=utf-8]}
+        Content type = application/json;charset=utf-8
+                Body = {"bookId":2,"title":"BackBoneの基礎","price":1800,"authors":[{"authorId":5,"firstName":"yamamoto","lastName":"itirou"},{"authorId":6,"firstName":"kaneko","lastName":"keisuke"}]}
+       Forwarded URL = null
+      Redirected URL = null
+             Cookies = []
+
+MockHttpServletRequest:
+         HTTP Method = GET
+         Request URI = /as/authors/1/books/2
+          Parameters = {}
+             Headers = {}
+
+             Handler:
+                Type = com.as.springbook.web.BookController
+              Method = public com.as.springbook.domain.Book com.as.springbook.web.BookController.getBook(long,long)
+
+               Async:
+   Was async started = false
+        Async result = null
+
+  Resolved Exception:
+                Type = null
+
+        ModelAndView:
+           View name = null
+                View = null
+               Model = null
+
+            FlashMap:
+
+MockHttpServletResponse:
+              Status = 200
+       Error message = null
+             Headers = {Content-Type=[application/json;charset=utf-8]}
+        Content type = application/json;charset=utf-8
+                Body = {"bookId":2,"title":"BackBoneの基礎","price":1800,"authors":[{"authorId":5,"firstName":"yamamoto","lastName":"itirou"},{"authorId":6,"firstName":"kaneko","lastName":"keisuke"}]}
+       Forwarded URL = null
+      Redirected URL = null
+             Cookies = []
+INFO  TransactionContext - Committed transaction for test context [DefaultTestContext@7c6d189a testClass = BookControllerTest, testInstance = com.as.springbook.web.BookControllerTest@274d4ee8, testMethod = testPutBook@BookControllerTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@14c4692 testClass = BookControllerTest, locations = '{file:src/main/resources/spring/application-config.xml, file:src/main/webapp/WEB-INF/mvc-config.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]].
+INFO  TransactionContext - Began transaction (1) for test context [DefaultTestContext@7c6d189a testClass = BookControllerTest, testInstance = com.as.springbook.web.BookControllerTest@4d06c375, testMethod = testGetBook@BookControllerTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@14c4692 testClass = BookControllerTest, locations = '{file:src/main/resources/spring/application-config.xml, file:src/main/webapp/WEB-INF/mvc-config.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@4b6652c7]; rollback [false]
+INFO  MockServletContext - Initializing Spring FrameworkServlet ''
+INFO  TestDispatcherServlet - FrameworkServlet '': initialization started
+INFO  TestDispatcherServlet - FrameworkServlet '': initialization completed in 2 ms
+---------------------------------------------
+[Book(bookId=1, title=初めてのjava, price=2000, authors=[Author(authorId=5, firstName=yamamoto, lastName=itirou)]), Book(bookId=2, title=BackBoneの基礎, price=1800, authors=[Author(authorId=5, firstName=yamamoto, lastName=itirou), Author(authorId=6, firstName=kaneko, lastName=keisuke)])]
+
+MockHttpServletRequest:
+         HTTP Method = GET
+         Request URI = /as/authors/1/books/1
+          Parameters = {}
+             Headers = {}
+
+             Handler:
+                Type = com.as.springbook.web.BookController
+              Method = public com.as.springbook.domain.Book com.as.springbook.web.BookController.getBook(long,long)
+
+               Async:
+   Was async started = false
+        Async result = null
+
+  Resolved Exception:
+                Type = null
+
+        ModelAndView:
+           View name = null
+                View = null
+               Model = null
+
+            FlashMap:
+
+MockHttpServletResponse:
+              Status = 200
+       Error message = null
+             Headers = {Content-Type=[application/json;charset=utf-8]}
+        Content type = application/json;charset=utf-8
+                Body = {"bookId":1,"title":"初めてのjava","price":2000,"authors":[{"authorId":5,"firstName":"yamamoto","lastName":"itirou"}]}
+       Forwarded URL = null
+      Redirected URL = null
+             Cookies = []
+INFO  TransactionContext - Committed transaction for test context [DefaultTestContext@7c6d189a testClass = BookControllerTest, testInstance = com.as.springbook.web.BookControllerTest@4d06c375, testMethod = testGetBook@BookControllerTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@14c4692 testClass = BookControllerTest, locations = '{file:src/main/resources/spring/application-config.xml, file:src/main/webapp/WEB-INF/mvc-config.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]].
+INFO  TransactionContext - Began transaction (1) for test context [DefaultTestContext@7c6d189a testClass = BookControllerTest, testInstance = com.as.springbook.web.BookControllerTest@567834b8, testMethod = testPostBook@BookControllerTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@14c4692 testClass = BookControllerTest, locations = '{file:src/main/resources/spring/application-config.xml, file:src/main/webapp/WEB-INF/mvc-config.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@4b6652c7]; rollback [false]
+INFO  MockServletContext - Initializing Spring FrameworkServlet ''
+INFO  TestDispatcherServlet - FrameworkServlet '': initialization started
+INFO  TestDispatcherServlet - FrameworkServlet '': initialization completed in 1 ms
+---------------------------------------------
+[Book(bookId=1, title=初めてのjava, price=2000, authors=[Author(authorId=5, firstName=yamamoto, lastName=itirou)]), Book(bookId=2, title=BackBoneの基礎, price=1800, authors=[Author(authorId=5, firstName=yamamoto, lastName=itirou), Author(authorId=6, firstName=kaneko, lastName=keisuke)])]
+
+MockHttpServletRequest:
+         HTTP Method = POST
+         Request URI = /as/authors/5/books
+          Parameters = {}
+             Headers = {Content-Type=[application/json]}
+
+             Handler:
+                Type = com.as.springbook.web.BookController
+              Method = public com.as.springbook.domain.Book com.as.springbook.web.BookController.postBook(com.as.springbook.domain.Book,long)
+
+               Async:
+   Was async started = false
+        Async result = null
+
+  Resolved Exception:
+                Type = null
+
+        ModelAndView:
+           View name = null
+                View = null
+               Model = null
+
+            FlashMap:
+
+MockHttpServletResponse:
+              Status = 200
+       Error message = null
+             Headers = {Content-Type=[application/json;charset=utf-8]}
+        Content type = application/json;charset=utf-8
+                Body = {"bookId":0,"title":"Gradle入門","price":2500,"authors":[{"authorId":5,"firstName":"yamamoto","lastName":"itirou"}]}
+       Forwarded URL = null
+      Redirected URL = null
+             Cookies = []
+
+MockHttpServletRequest:
+         HTTP Method = GET
+         Request URI = /as/authors/5/books
+          Parameters = {}
+             Headers = {}
+
+             Handler:
+                Type = com.as.springbook.web.BookController
+              Method = public java.util.List<com.as.springbook.domain.Book> com.as.springbook.web.BookController.getBooks(long)
+
+               Async:
+   Was async started = false
+        Async result = null
+
+  Resolved Exception:
+                Type = null
+
+        ModelAndView:
+           View name = null
+                View = null
+               Model = null
+
+            FlashMap:
+
+MockHttpServletResponse:
+              Status = 200
+       Error message = null
+             Headers = {Content-Type=[application/json;charset=utf-8]}
+        Content type = application/json;charset=utf-8
+                Body = [{"bookId":1,"title":"初めてのjava","price":2000,"authors":[{"authorId":5,"firstName":"yamamoto","lastName":"itirou"}]},{"bookId":2,"title":"BackBoneの基礎","price":1800,"authors":[{"authorId":5,"firstName":"yamamoto","lastName":"itirou"},{"authorId":6,"firstName":"kaneko","lastName":"keisuke"}]},{"bookId":3,"title":"Gradle入門","price":2500,"authors":[{"authorId":5,"firstName":"yamamoto","lastName":"itirou"}]}]
+       Forwarded URL = null
+      Redirected URL = null
+             Cookies = []
+INFO  TransactionContext - Committed transaction for test context [DefaultTestContext@7c6d189a testClass = BookControllerTest, testInstance = com.as.springbook.web.BookControllerTest@567834b8, testMethod = testPostBook@BookControllerTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@14c4692 testClass = BookControllerTest, locations = '{file:src/main/resources/spring/application-config.xml, file:src/main/webapp/WEB-INF/mvc-config.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]].
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

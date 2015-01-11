@@ -5,7 +5,6 @@
 package com.as.springbook.service;
 
 import java.util.List;
-import java.util.Set;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -22,7 +21,7 @@ public interface BookService {
 
 	Book create(Book book, long authorId);
 
-	Book update(Book book);
+	Book update(Book book,long bookId, long authorId);
 
 	void delete(long id);
 

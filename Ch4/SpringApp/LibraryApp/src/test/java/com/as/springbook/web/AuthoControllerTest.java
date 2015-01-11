@@ -14,12 +14,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.context.WebApplicationContext;
 
 import com.as.springbook.domain.Author;
 import com.as.springbook.repository.AuthorRepository;
+import com.as.springbook.repository.BookRepository;
 import com.as.springbook.service.AuthorService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -28,6 +31,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @ContextConfiguration(locations = {
 		"file:src/main/resources/spring/application-config.xml",
 		"file:src/main/webapp/WEB-INF/mvc-config.xml" })
+@Transactional
+@TransactionConfiguration(defaultRollback=false)
 public class AuthoControllerTest {
 
 	@Autowired
@@ -38,6 +43,9 @@ public class AuthoControllerTest {
 
 	@Autowired
 	private AuthorRepository authorRepository;
+	
+	@Autowired
+	private BookRepository bookRepository;
 
 	private MockMvc mockMvc;
 
@@ -47,9 +55,11 @@ public class AuthoControllerTest {
 	@Before
 	public void setup() {
 		mockMvc = webAppContextSetup(wac).build();
-		if (authorService.findOne(1) == null) {
+	
+		if (authorRepository.findByFirstName("takahasi") == null) {
+			authorRepository.deleteAll();
 			author = new Author();
-			author.setFirstName("yamamoto");
+			author.setFirstName("takahasi");
 			author.setLastName("itirou");
 			authorService.create(author);
 			author2 = new Author();
@@ -63,7 +73,7 @@ public class AuthoControllerTest {
 	public void testGetAuthors() throws Exception {
 		mockMvc.perform(get("/as/authors")).andDo(print())
 				.andExpect(jsonPath("$", hasSize(2)))
-				.andExpect(jsonPath("$[0].firstName", is("yamamoto")))
+				.andExpect(jsonPath("$[0].firstName", is("takahasi")))
 				.andExpect(jsonPath("$[1].lastName", is("keisuke")));
 	}
 

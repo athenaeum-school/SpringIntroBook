@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.as.springbook.web.BooksControllerTest" tests="6" skipped="0" failures="3" errors="0" timestamp="2015-01-11T06:44:46" hostname="yuraku-PC" time="0.114">
+  <properties/>
+  <testcase name="testSearchTitle" classname="com.as.springbook.web.BooksControllerTest" time="0.027"/>
+  <testcase name="testPage" classname="com.as.springbook.web.BooksControllerTest" time="0.011"/>
+  <testcase name="testSize" classname="com.as.springbook.web.BooksControllerTest" time="0.013"/>
+  <testcase name="testGetAllBooks" classname="com.as.springbook.web.BooksControllerTest" time="0.019">
+    <failure message="java.lang.AssertionError: JSON path$.content&#10;Expected: a collection with size &lt;2&gt;&#10;     but: collection size was &lt;3&gt;" type="java.lang.AssertionError">java.lang.AssertionError: JSON path$.content
+Expected: a collection with size &lt;2&gt;
+     but: collection size was &lt;3&gt;
+	at org.springframework.test.util.MatcherAssertionErrors.assertThat(MatcherAssertionErrors.java:79)
+	at org.springframework.test.util.JsonPathExpectationsHelper.assertValue(JsonPathExpectationsHelper.java:65)
+	at org.springframework.test.web.servlet.result.JsonPathResultMatchers$1.match(JsonPathResultMatchers.java:55)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:153)
+	at com.as.springbook.web.BooksControllerTest.testGetAllBooks(BooksControllerTest.java:98)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:72)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:81)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:72)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:216)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:82)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:60)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:67)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:162)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecuter.runTestClass(JUnitTestClassExecuter.java:86)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecuter.execute(JUnitTestClassExecuter.java:49)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassProcessor.processTestClass(JUnitTestClassProcessor.java:69)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:48)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35)
+	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.messaging.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:32)
+	at org.gradle.messaging.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:93)
+	at com.sun.proxy.$Proxy2.processTestClass(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.processTestClass(TestWorker.java:105)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35)
+	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.messaging.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:355)
+	at org.gradle.internal.concurrent.DefaultExecutorFactory$StoppableExecutorImpl$1.run(DefaultExecutorFactory.java:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+</failure>
+  </testcase>
+  <testcase name="testSearchAuthorLastName" classname="com.as.springbook.web.BooksControllerTest" time="0.014">
+    <failure message="java.lang.AssertionError: JSON path$.content&#10;Expected: a collection with size &lt;2&gt;&#10;     but: collection size was &lt;3&gt;" type="java.lang.AssertionError">java.lang.AssertionError: JSON path$.content
+Expected: a collection with size &lt;2&gt;
+     but: collection size was &lt;3&gt;
+	at org.springframework.test.util.MatcherAssertionErrors.assertThat(MatcherAssertionErrors.java:79)
+	at org.springframework.test.util.JsonPathExpectationsHelper.assertValue(JsonPathExpectationsHelper.java:65)
+	at org.springframework.test.web.servlet.result.JsonPathResultMatchers$1.match(JsonPathResultMatchers.java:55)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:153)
+	at com.as.springbook.web.BooksControllerTest.testSearchAuthorLastName(BooksControllerTest.java:139)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:72)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:81)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:72)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:216)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:82)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:60)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:67)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:162)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecuter.runTestClass(JUnitTestClassExecuter.java:86)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecuter.execute(JUnitTestClassExecuter.java:49)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassProcessor.processTestClass(JUnitTestClassProcessor.java:69)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:48)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35)
+	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.messaging.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:32)
+	at org.gradle.messaging.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:93)
+	at com.sun.proxy.$Proxy2.processTestClass(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.processTestClass(TestWorker.java:105)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35)
+	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.messaging.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:355)
+	at org.gradle.internal.concurrent.DefaultExecutorFactory$StoppableExecutorImpl$1.run(DefaultExecutorFactory.java:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+</failure>
+  </testcase>
+  <testcase name="testSearchAuthorFirstName" classname="com.as.springbook.web.BooksControllerTest" time="0.015">
+    <failure message="java.lang.AssertionError: JSON path$.content[0].title&#10;Expected: is &quot;初めてのspring&quot;&#10;     but: was &quot;BackBoneの基礎&quot;" type="java.lang.AssertionError">java.lang.AssertionError: JSON path$.content[0].title
+Expected: is &quot;初めてのspring&quot;
+     but: was &quot;BackBoneの基礎&quot;
+	at org.springframework.test.util.MatcherAssertionErrors.assertThat(MatcherAssertionErrors.java:79)
+	at org.springframework.test.util.JsonPathExpectationsHelper.assertValue(JsonPathExpectationsHelper.java:65)
+	at org.springframework.test.web.servlet.result.JsonPathResultMatchers$1.match(JsonPathResultMatchers.java:55)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:153)
+	at com.as.springbook.web.BooksControllerTest.testSearchAuthorFirstName(BooksControllerTest.java:133)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:72)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:81)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:72)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:216)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:82)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:60)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:67)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:162)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecuter.runTestClass(JUnitTestClassExecuter.java:86)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecuter.execute(JUnitTestClassExecuter.java:49)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassProcessor.processTestClass(JUnitTestClassProcessor.java:69)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:48)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35)
+	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.messaging.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:32)
+	at org.gradle.messaging.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:93)
+	at com.sun.proxy.$Proxy2.processTestClass(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.processTestClass(TestWorker.java:105)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35)
+	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.messaging.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:355)
+	at org.gradle.internal.concurrent.DefaultExecutorFactory$StoppableExecutorImpl$1.run(DefaultExecutorFactory.java:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+</failure>
+  </testcase>
+  <system-out><![CDATA[INFO  WebTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+INFO  WebTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@7c6772dd, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@30b888da, org.springframework.test.context.support.DirtiesContextTestExecutionListener@30b014dd, org.springframework.test.context.transaction.TransactionalTestExecutionListener@27d41da2, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@6062621f]
+INFO  TransactionContext - Began transaction (1) for test context [DefaultTestContext@1468d891 testClass = BooksControllerTest, testInstance = com.as.springbook.web.BooksControllerTest@24ce303d, testMethod = testSearchTitle@BooksControllerTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@23f0100b testClass = BooksControllerTest, locations = '{file:src/main/resources/spring/application-config.xml, file:src/main/webapp/WEB-INF/mvc-config.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@4b6652c7]; rollback [false]
+INFO  MockServletContext - Initializing Spring FrameworkServlet ''
+INFO  TestDispatcherServlet - FrameworkServlet '': initialization started
+INFO  TestDispatcherServlet - FrameworkServlet '': initialization completed in 2 ms
+INFO  TransactionContext - Committed transaction for test context [DefaultTestContext@1468d891 testClass = BooksControllerTest, testInstance = com.as.springbook.web.BooksControllerTest@24ce303d, testMethod = testSearchTitle@BooksControllerTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@23f0100b testClass = BooksControllerTest, locations = '{file:src/main/resources/spring/application-config.xml, file:src/main/webapp/WEB-INF/mvc-config.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]].
+INFO  TransactionContext - Began transaction (1) for test context [DefaultTestContext@1468d891 testClass = BooksControllerTest, testInstance = com.as.springbook.web.BooksControllerTest@2d7c4010, testMethod = testPage@BooksControllerTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@23f0100b testClass = BooksControllerTest, locations = '{file:src/main/resources/spring/application-config.xml, file:src/main/webapp/WEB-INF/mvc-config.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@4b6652c7]; rollback [false]
+INFO  MockServletContext - Initializing Spring FrameworkServlet ''
+INFO  TestDispatcherServlet - FrameworkServlet '': initialization started
+INFO  TestDispatcherServlet - FrameworkServlet '': initialization completed in 2 ms
+INFO  TransactionContext - Committed transaction for test context [DefaultTestContext@1468d891 testClass = BooksControllerTest, testInstance = com.as.springbook.web.BooksControllerTest@2d7c4010, testMethod = testPage@BooksControllerTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@23f0100b testClass = BooksControllerTest, locations = '{file:src/main/resources/spring/application-config.xml, file:src/main/webapp/WEB-INF/mvc-config.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]].
+INFO  TransactionContext - Began transaction (1) for test context [DefaultTestContext@1468d891 testClass = BooksControllerTest, testInstance = com.as.springbook.web.BooksControllerTest@6c69892a, testMethod = testSize@BooksControllerTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@23f0100b testClass = BooksControllerTest, locations = '{file:src/main/resources/spring/application-config.xml, file:src/main/webapp/WEB-INF/mvc-config.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@4b6652c7]; rollback [false]
+INFO  MockServletContext - Initializing Spring FrameworkServlet ''
+INFO  TestDispatcherServlet - FrameworkServlet '': initialization started
+INFO  TestDispatcherServlet - FrameworkServlet '': initialization completed in 2 ms
+INFO  TransactionContext - Committed transaction for test context [DefaultTestContext@1468d891 testClass = BooksControllerTest, testInstance = com.as.springbook.web.BooksControllerTest@6c69892a, testMethod = testSize@BooksControllerTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@23f0100b testClass = BooksControllerTest, locations = '{file:src/main/resources/spring/application-config.xml, file:src/main/webapp/WEB-INF/mvc-config.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]].
+INFO  TransactionContext - Began transaction (1) for test context [DefaultTestContext@1468d891 testClass = BooksControllerTest, testInstance = com.as.springbook.web.BooksControllerTest@3531169d, testMethod = testGetAllBooks@BooksControllerTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@23f0100b testClass = BooksControllerTest, locations = '{file:src/main/resources/spring/application-config.xml, file:src/main/webapp/WEB-INF/mvc-config.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@4b6652c7]; rollback [false]
+INFO  MockServletContext - Initializing Spring FrameworkServlet ''
+INFO  TestDispatcherServlet - FrameworkServlet '': initialization started
+INFO  TestDispatcherServlet - FrameworkServlet '': initialization completed in 2 ms
+INFO  TransactionContext - Committed transaction for test context [DefaultTestContext@1468d891 testClass = BooksControllerTest, testInstance = com.as.springbook.web.BooksControllerTest@3531169d, testMethod = testGetAllBooks@BooksControllerTest, testException = java.lang.AssertionError: JSON path$.content
+Expected: a collection with size <2>
+     but: collection size was <3>, mergedContextConfiguration = [WebMergedContextConfiguration@23f0100b testClass = BooksControllerTest, locations = '{file:src/main/resources/spring/application-config.xml, file:src/main/webapp/WEB-INF/mvc-config.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]].
+INFO  TransactionContext - Began transaction (1) for test context [DefaultTestContext@1468d891 testClass = BooksControllerTest, testInstance = com.as.springbook.web.BooksControllerTest@55fda2f6, testMethod = testSearchAuthorLastName@BooksControllerTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@23f0100b testClass = BooksControllerTest, locations = '{file:src/main/resources/spring/application-config.xml, file:src/main/webapp/WEB-INF/mvc-config.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@4b6652c7]; rollback [false]
+INFO  MockServletContext - Initializing Spring FrameworkServlet ''
+INFO  TestDispatcherServlet - FrameworkServlet '': initialization started
+INFO  TestDispatcherServlet - FrameworkServlet '': initialization completed in 3 ms
+INFO  TransactionContext - Committed transaction for test context [DefaultTestContext@1468d891 testClass = BooksControllerTest, testInstance = com.as.springbook.web.BooksControllerTest@55fda2f6, testMethod = testSearchAuthorLastName@BooksControllerTest, testException = java.lang.AssertionError: JSON path$.content
+Expected: a collection with size <2>
+     but: collection size was <3>, mergedContextConfiguration = [WebMergedContextConfiguration@23f0100b testClass = BooksControllerTest, locations = '{file:src/main/resources/spring/application-config.xml, file:src/main/webapp/WEB-INF/mvc-config.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]].
+INFO  TransactionContext - Began transaction (1) for test context [DefaultTestContext@1468d891 testClass = BooksControllerTest, testInstance = com.as.springbook.web.BooksControllerTest@2728735, testMethod = testSearchAuthorFirstName@BooksControllerTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@23f0100b testClass = BooksControllerTest, locations = '{file:src/main/resources/spring/application-config.xml, file:src/main/webapp/WEB-INF/mvc-config.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@4b6652c7]; rollback [false]
+INFO  MockServletContext - Initializing Spring FrameworkServlet ''
+INFO  TestDispatcherServlet - FrameworkServlet '': initialization started
+INFO  TestDispatcherServlet - FrameworkServlet '': initialization completed in 2 ms
+INFO  TransactionContext - Committed transaction for test context [DefaultTestContext@1468d891 testClass = BooksControllerTest, testInstance = com.as.springbook.web.BooksControllerTest@2728735, testMethod = testSearchAuthorFirstName@BooksControllerTest, testException = java.lang.AssertionError: JSON path$.content[0].title
+Expected: is "初めてのspring"
+     but: was "BackBoneの基礎", mergedContextConfiguration = [WebMergedContextConfiguration@23f0100b testClass = BooksControllerTest, locations = '{file:src/main/resources/spring/application-config.xml, file:src/main/webapp/WEB-INF/mvc-config.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]].
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

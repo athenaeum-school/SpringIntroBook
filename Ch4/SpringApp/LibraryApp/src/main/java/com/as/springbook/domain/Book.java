@@ -1,14 +1,13 @@
 /*
-* All Rights Reserved by Athenaeum Society 2015-
-* Written by Inotakuya
-*/
+ * All Rights Reserved by Athenaeum Society 2015-
+ * Written by Inotakuya
+ */
 package com.as.springbook.domain;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -26,7 +25,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Book implements Serializable{
+public class Book implements Serializable {
 
 	/**
 	 * 
@@ -41,9 +40,7 @@ public class Book implements Serializable{
 
 	private int price;
 
-	@ManyToMany(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+	@ManyToMany(fetch = FetchType.EAGER)
 	private List<Author> authors = new ArrayList<Author>();
-	
 
-	
 }

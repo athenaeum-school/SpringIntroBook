@@ -4,6 +4,7 @@
 */
 package com.as.springbook.domain;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,12 +17,13 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import org.codehaus.jackson.annotate.JsonIgnore;
 
 
 @Entity
@@ -30,9 +32,14 @@ import org.codehaus.jackson.annotate.JsonIgnore;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(exclude = "books")
-public class Author {
+public class Author implements Serializable{
 
 
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

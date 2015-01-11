@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.as.springbook.web.AuthoControllerTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2015-01-11T06:44:45" hostname="yuraku-PC" time="0.429">
+  <properties/>
+  <testcase name="testGetAuthors" classname="com.as.springbook.web.AuthoControllerTest" time="0.276"/>
+  <testcase name="testPutAuthor" classname="com.as.springbook.web.AuthoControllerTest" time="0.1"/>
+  <testcase name="testDeleteAuthor" classname="com.as.springbook.web.AuthoControllerTest" time="0.022"/>
+  <testcase name="testPostAuthor" classname="com.as.springbook.web.AuthoControllerTest" time="0.015"/>
+  <testcase name="testGetAuthor" classname="com.as.springbook.web.AuthoControllerTest" time="0.009"/>
+  <system-out><![CDATA[INFO  WebTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+INFO  WebTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@57eeedd2, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@1118577d, org.springframework.test.context.support.DirtiesContextTestExecutionListener@2d7cf7ae, org.springframework.test.context.transaction.TransactionalTestExecutionListener@7e2ada13, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@5e0a3879]
+INFO  XmlBeanDefinitionReader - Loading XML bean definitions from URL [file:src/main/resources/spring/application-config.xml]
+INFO  XmlBeanDefinitionReader - Loading XML bean definitions from URL [file:src/main/webapp/WEB-INF/mvc-config.xml]
+INFO  GenericWebApplicationContext - Refreshing org.springframework.web.context.support.GenericWebApplicationContext@2f1c7506: startup date [Sun Jan 11 15:44:42 JST 2015]; root of context hierarchy
+INFO  PropertySourcesPlaceholderConfigurer - Loading properties file from class path resource [spring/database.properties]
+INFO  LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'persistenceUnit'
+INFO  Version - HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+INFO  Version - HHH000412: Hibernate Core {4.2.1.Final}
+INFO  Environment - HHH000206: hibernate.properties not found
+INFO  Environment - HHH000021: Bytecode provider name : javassist
+INFO  Ejb3Configuration - HHH000204: Processing PersistenceUnitInfo [
+	name: persistenceUnit
+	...]
+INFO  ConnectionProviderInitiator - HHH000130: Instantiating explicit connection provider: org.hibernate.ejb.connection.InjectedDataSourceConnectionProvider
+INFO  Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+INFO  TransactionFactoryInitiator - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+INFO  ASTQueryTranslatorFactory - HHH000397: Using ASTQueryTranslatorFactory
+INFO  Version - HV000001: Hibernate Validator 4.3.0.Final
+INFO  SchemaExport - HHH000227: Running hbm2ddl schema export
+ERROR SchemaExport - HHH000389: Unsuccessful: alter table book_authors drop constraint FK_0481eded2b99434caade7de522b
+ERROR SchemaExport - テーブル "BOOK_AUTHORS" が見つかりません
+Table "BOOK_AUTHORS" not found; SQL statement:
+alter table book_authors drop constraint FK_0481eded2b99434caade7de522b [42102-174]
+ERROR SchemaExport - HHH000389: Unsuccessful: alter table book_authors drop constraint FK_439980d72bf6416a9024c433b23
+ERROR SchemaExport - テーブル "BOOK_AUTHORS" が見つかりません
+Table "BOOK_AUTHORS" not found; SQL statement:
+alter table book_authors drop constraint FK_439980d72bf6416a9024c433b23 [42102-174]
+INFO  SchemaExport - HHH000230: Schema export complete
+INFO  RequestMappingHandlerMapping - Mapped "{[/as/authors],methods=[GET],params=[],headers=[],consumes=[],produces=[application/json;charset=utf-8],custom=[]}" onto public java.util.List<com.as.springbook.domain.Author> com.as.springbook.web.AuthorController.getAuthors()
+INFO  RequestMappingHandlerMapping - Mapped "{[/as/authors/{id}],methods=[GET],params=[],headers=[],consumes=[],produces=[application/json;charset=utf-8],custom=[]}" onto public com.as.springbook.domain.Author com.as.springbook.web.AuthorController.getAuthor(long)
+INFO  RequestMappingHandlerMapping - Mapped "{[/as/authors/{id}],methods=[DELETE],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void com.as.springbook.web.AuthorController.deleteAuthor(long)
+INFO  RequestMappingHandlerMapping - Mapped "{[/as/authors],methods=[POST],params=[],headers=[],consumes=[application/json],produces=[application/json;charset=utf-8],custom=[]}" onto public com.as.springbook.domain.Author com.as.springbook.web.AuthorController.postAuthor(com.as.springbook.domain.Author)
+INFO  RequestMappingHandlerMapping - Mapped "{[/as/authors/{id}],methods=[PUT],params=[],headers=[],consumes=[application/json],produces=[application/json;charset=utf-8],custom=[]}" onto public com.as.springbook.domain.Author com.as.springbook.web.AuthorController.putAuthor(long,com.as.springbook.domain.Author)
+INFO  RequestMappingHandlerMapping - Mapped "{[/as/authors/{authorId}/books],methods=[GET],params=[],headers=[],consumes=[],produces=[application/json;charset=utf-8],custom=[]}" onto public java.util.List<com.as.springbook.domain.Book> com.as.springbook.web.BookController.getBooks(long)
+INFO  RequestMappingHandlerMapping - Mapped "{[/as/authors/{authorId}/books],methods=[POST],params=[],headers=[],consumes=[application/json],produces=[application/json;charset=utf-8],custom=[]}" onto public com.as.springbook.domain.Book com.as.springbook.web.BookController.postBook(com.as.springbook.domain.Book,long)
+INFO  RequestMappingHandlerMapping - Mapped "{[/as/authors/{authorId}/books/{id}],methods=[GET],params=[],headers=[],consumes=[],produces=[application/json;charset=utf-8],custom=[]}" onto public com.as.springbook.domain.Book com.as.springbook.web.BookController.getBook(long,long)
+INFO  RequestMappingHandlerMapping - Mapped "{[/as/authors/{authorId}/books/{id}],methods=[PUT],params=[],headers=[],consumes=[application/json],produces=[application/json;charset=utf-8],custom=[]}" onto public com.as.springbook.domain.Book com.as.springbook.web.BookController.putBook(long,long,com.as.springbook.domain.Book)
+INFO  RequestMappingHandlerMapping - Mapped "{[/as/authors/{authorId}/books/{id}],methods=[DELETE],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void com.as.springbook.web.BookController.deleteBook(long)
+INFO  RequestMappingHandlerMapping - Mapped "{[/as/books],methods=[GET],params=[],headers=[],consumes=[],produces=[application/json;charset=utf-8],custom=[]}" onto public org.springframework.data.domain.Page<com.as.springbook.domain.Book> com.as.springbook.web.BooksController.getAllBooks(java.lang.String,java.lang.String,java.lang.String,java.lang.String)
+INFO  RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@2f1c7506: startup date [Sun Jan 11 15:44:42 JST 2015]; root of context hierarchy
+INFO  RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@2f1c7506: startup date [Sun Jan 11 15:44:42 JST 2015]; root of context hierarchy
+INFO  TransactionContext - Began transaction (1) for test context [DefaultTestContext@4534a690 testClass = AuthoControllerTest, testInstance = com.as.springbook.web.AuthoControllerTest@5f1ca34a, testMethod = testGetAuthors@AuthoControllerTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@37d217ab testClass = AuthoControllerTest, locations = '{file:src/main/resources/spring/application-config.xml, file:src/main/webapp/WEB-INF/mvc-config.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@4b6652c7]; rollback [false]
+INFO  MockServletContext - Initializing Spring FrameworkServlet ''
+INFO  TestDispatcherServlet - FrameworkServlet '': initialization started
+INFO  TestDispatcherServlet - FrameworkServlet '': initialization completed in 16 ms
+
+MockHttpServletRequest:
+         HTTP Method = GET
+         Request URI = /as/authors
+          Parameters = {}
+             Headers = {}
+
+             Handler:
+                Type = com.as.springbook.web.AuthorController
+              Method = public java.util.List<com.as.springbook.domain.Author> com.as.springbook.web.AuthorController.getAuthors()
+
+               Async:
+   Was async started = false
+        Async result = null
+
+  Resolved Exception:
+                Type = null
+
+        ModelAndView:
+           View name = null
+                View = null
+               Model = null
+
+            FlashMap:
+
+MockHttpServletResponse:
+              Status = 200
+       Error message = null
+             Headers = {Content-Type=[application/json;charset=utf-8]}
+        Content type = application/json;charset=utf-8
+                Body = [{"authorId":1,"firstName":"takahasi","lastName":"itirou"},{"authorId":2,"firstName":"kaneko","lastName":"keisuke"}]
+       Forwarded URL = null
+      Redirected URL = null
+             Cookies = []
+INFO  TransactionContext - Committed transaction for test context [DefaultTestContext@4534a690 testClass = AuthoControllerTest, testInstance = com.as.springbook.web.AuthoControllerTest@5f1ca34a, testMethod = testGetAuthors@AuthoControllerTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@37d217ab testClass = AuthoControllerTest, locations = '{file:src/main/resources/spring/application-config.xml, file:src/main/webapp/WEB-INF/mvc-config.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]].
+INFO  TransactionContext - Began transaction (1) for test context [DefaultTestContext@4534a690 testClass = AuthoControllerTest, testInstance = com.as.springbook.web.AuthoControllerTest@6dca1431, testMethod = testPutAuthor@AuthoControllerTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@37d217ab testClass = AuthoControllerTest, locations = '{file:src/main/resources/spring/application-config.xml, file:src/main/webapp/WEB-INF/mvc-config.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@4b6652c7]; rollback [false]
+INFO  MockServletContext - Initializing Spring FrameworkServlet ''
+INFO  TestDispatcherServlet - FrameworkServlet '': initialization started
+INFO  TestDispatcherServlet - FrameworkServlet '': initialization completed in 2 ms
+
+MockHttpServletRequest:
+         HTTP Method = PUT
+         Request URI = /as/authors/2
+          Parameters = {}
+             Headers = {Content-Type=[application/json]}
+
+             Handler:
+                Type = com.as.springbook.web.AuthorController
+              Method = public com.as.springbook.domain.Author com.as.springbook.web.AuthorController.putAuthor(long,com.as.springbook.domain.Author)
+
+               Async:
+   Was async started = false
+        Async result = null
+
+  Resolved Exception:
+                Type = null
+
+        ModelAndView:
+           View name = null
+                View = null
+               Model = null
+
+            FlashMap:
+
+MockHttpServletResponse:
+              Status = 200
+       Error message = null
+             Headers = {Content-Type=[application/json;charset=utf-8]}
+        Content type = application/json;charset=utf-8
+                Body = {"authorId":2,"firstName":"ikeda","lastName":"tomoaki"}
+       Forwarded URL = null
+      Redirected URL = null
+             Cookies = []
+INFO  TransactionContext - Committed transaction for test context [DefaultTestContext@4534a690 testClass = AuthoControllerTest, testInstance = com.as.springbook.web.AuthoControllerTest@6dca1431, testMethod = testPutAuthor@AuthoControllerTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@37d217ab testClass = AuthoControllerTest, locations = '{file:src/main/resources/spring/application-config.xml, file:src/main/webapp/WEB-INF/mvc-config.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]].
+INFO  TransactionContext - Began transaction (1) for test context [DefaultTestContext@4534a690 testClass = AuthoControllerTest, testInstance = com.as.springbook.web.AuthoControllerTest@1e00e000, testMethod = testDeleteAuthor@AuthoControllerTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@37d217ab testClass = AuthoControllerTest, locations = '{file:src/main/resources/spring/application-config.xml, file:src/main/webapp/WEB-INF/mvc-config.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@4b6652c7]; rollback [false]
+INFO  MockServletContext - Initializing Spring FrameworkServlet ''
+INFO  TestDispatcherServlet - FrameworkServlet '': initialization started
+INFO  TestDispatcherServlet - FrameworkServlet '': initialization completed in 1 ms
+INFO  TransactionContext - Committed transaction for test context [DefaultTestContext@4534a690 testClass = AuthoControllerTest, testInstance = com.as.springbook.web.AuthoControllerTest@1e00e000, testMethod = testDeleteAuthor@AuthoControllerTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@37d217ab testClass = AuthoControllerTest, locations = '{file:src/main/resources/spring/application-config.xml, file:src/main/webapp/WEB-INF/mvc-config.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]].
+INFO  TransactionContext - Began transaction (1) for test context [DefaultTestContext@4534a690 testClass = AuthoControllerTest, testInstance = com.as.springbook.web.AuthoControllerTest@c7d68c2, testMethod = testPostAuthor@AuthoControllerTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@37d217ab testClass = AuthoControllerTest, locations = '{file:src/main/resources/spring/application-config.xml, file:src/main/webapp/WEB-INF/mvc-config.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@4b6652c7]; rollback [false]
+INFO  MockServletContext - Initializing Spring FrameworkServlet ''
+INFO  TestDispatcherServlet - FrameworkServlet '': initialization started
+INFO  TestDispatcherServlet - FrameworkServlet '': initialization completed in 1 ms
+Author(authorId=0, firstName=tanaka, lastName=daisuke)
+
+MockHttpServletRequest:
+         HTTP Method = GET
+         Request URI = /as/authors
+          Parameters = {}
+             Headers = {}
+
+             Handler:
+                Type = com.as.springbook.web.AuthorController
+              Method = public java.util.List<com.as.springbook.domain.Author> com.as.springbook.web.AuthorController.getAuthors()
+
+               Async:
+   Was async started = false
+        Async result = null
+
+  Resolved Exception:
+                Type = null
+
+        ModelAndView:
+           View name = null
+                View = null
+               Model = null
+
+            FlashMap:
+
+MockHttpServletResponse:
+              Status = 200
+       Error message = null
+             Headers = {Content-Type=[application/json;charset=utf-8]}
+        Content type = application/json;charset=utf-8
+                Body = [{"authorId":1,"firstName":"takahasi","lastName":"itirou"},{"authorId":2,"firstName":"kaneko","lastName":"keisuke"},{"authorId":4,"firstName":"tanaka","lastName":"daisuke"}]
+       Forwarded URL = null
+      Redirected URL = null
+             Cookies = []
+INFO  TransactionContext - Committed transaction for test context [DefaultTestContext@4534a690 testClass = AuthoControllerTest, testInstance = com.as.springbook.web.AuthoControllerTest@c7d68c2, testMethod = testPostAuthor@AuthoControllerTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@37d217ab testClass = AuthoControllerTest, locations = '{file:src/main/resources/spring/application-config.xml, file:src/main/webapp/WEB-INF/mvc-config.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]].
+INFO  TransactionContext - Began transaction (1) for test context [DefaultTestContext@4534a690 testClass = AuthoControllerTest, testInstance = com.as.springbook.web.AuthoControllerTest@77082980, testMethod = testGetAuthor@AuthoControllerTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@37d217ab testClass = AuthoControllerTest, locations = '{file:src/main/resources/spring/application-config.xml, file:src/main/webapp/WEB-INF/mvc-config.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@4b6652c7]; rollback [false]
+INFO  MockServletContext - Initializing Spring FrameworkServlet ''
+INFO  TestDispatcherServlet - FrameworkServlet '': initialization started
+INFO  TestDispatcherServlet - FrameworkServlet '': initialization completed in 2 ms
+
+MockHttpServletRequest:
+         HTTP Method = GET
+         Request URI = /as/authors/1
+          Parameters = {}
+             Headers = {}
+
+             Handler:
+                Type = com.as.springbook.web.AuthorController
+              Method = public com.as.springbook.domain.Author com.as.springbook.web.AuthorController.getAuthor(long)
+
+               Async:
+   Was async started = false
+        Async result = null
+
+  Resolved Exception:
+                Type = null
+
+        ModelAndView:
+           View name = null
+                View = null
+               Model = null
+
+            FlashMap:
+
+MockHttpServletResponse:
+              Status = 200
+       Error message = null
+             Headers = {Content-Type=[application/json;charset=utf-8]}
+        Content type = application/json;charset=utf-8
+                Body = {"authorId":1,"firstName":"takahasi","lastName":"itirou"}
+       Forwarded URL = null
+      Redirected URL = null
+             Cookies = []
+INFO  TransactionContext - Committed transaction for test context [DefaultTestContext@4534a690 testClass = AuthoControllerTest, testInstance = com.as.springbook.web.AuthoControllerTest@77082980, testMethod = testGetAuthor@AuthoControllerTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@37d217ab testClass = AuthoControllerTest, locations = '{file:src/main/resources/spring/application-config.xml, file:src/main/webapp/WEB-INF/mvc-config.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]].
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,11 +1,10 @@
 /*
-* All Rights Reserved by Athenaeum Society 2015-
-* Written by Inotakuya
-*/
+ * All Rights Reserved by Athenaeum Society 2015-
+ * Written by Inotakuya
+ */
 package com.as.springbook.web;
 
 import java.util.List;
-import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -34,24 +33,26 @@ public class BookRestController {
 	}
 
 	@RequestMapping(value = "{id}", method = RequestMethod.GET)
-	public Book getBook(@PathVariable long id,@PathVariable long authorId) {
+	public Book getBook(@PathVariable long id, @PathVariable long authorId) {
 		return bookService.findOne(id);
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public Book postBook(@RequestBody Book book,@PathVariable long authorId) {
-		/*book.setAuthor(authorService.findOne(authorId));
+	public Book postBook(@RequestBody Book book, @PathVariable long authorId) {
+		/*
+		 * book.setAuthor(authorService.findOne(authorId));
 		 * 
-		return bookService.create(book);*/
-		/*book.getAuthors().add(authorService.findOne(authorId));*/
-		
+		 * return bookService.create(book);
+		 */
+		/* book.getAuthors().add(authorService.findOne(authorId)); */
+
 		return bookService.create(book, authorId);
 	}
 
 	@RequestMapping(value = "{id}", method = RequestMethod.PUT)
-	public Book putBook(@PathVariable long id, @RequestBody Book book) {
-		book.setBookId(id);
-		return bookService.update(book);
+	public Book putBook(@PathVariable long id, @PathVariable long authorId,
+			@RequestBody Book book) {
+		return bookService.update(book, id, authorId);
 	}
 
 	@RequestMapping(value = "{id}", method = RequestMethod.DELETE)

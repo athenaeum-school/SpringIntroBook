@@ -15,6 +15,7 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.as.springbook.domain.Author;
 import com.as.springbook.domain.Book;
 import com.as.springbook.repository.AuthorRepository;
 import com.as.springbook.repository.BookRepository;
@@ -47,11 +48,25 @@ public class BookServiceImpl implements BookService {
 	@Override
 	public Book create(Book book, long authorId) {
 		book.getAuthors().add(authorRepository.findOne(authorId));
-		return bookRepository.save(book);
+		Author author = authorRepository.findOne(authorId);
+		
+		author.getBooks().add(book);
+		authorRepository.save(author);
+		return book;
 	}
 
 	@Override
-	public Book update(Book book) {
+	public Book update(Book book,long bookId,long authorId) {
+		if(book == null){
+			Book existBook = bookRepository.findOne(bookId);
+			existBook.getAuthors().add(authorRepository.findOne(authorId));
+			return bookRepository.save(existBook);
+		}
+		book.setAuthors(bookRepository.findOne(bookId).getAuthors());
+		System.out.println("--------------" + book);
+		book.setBookId(bookId);
+		System.out.println(book+"----------------");
+		
 		return bookRepository.save(book);
 	}
 
