@@ -1,14 +1,20 @@
 package com.as.springbook.web;
 
-import static org.hamcrest.Matchers.*;
-import static org.springframework.test.web.servlet.setup.MockMvcBuilders.*;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-import static org.springframework.test.web.servlet.result.ModelResultMatchers.*;
+import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.is;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
 
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -32,7 +38,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 		"file:src/main/resources/spring/application-config.xml",
 		"file:src/main/webapp/WEB-INF/mvc-config.xml" })
 @Transactional
-@TransactionConfiguration(defaultRollback=false)
+@TransactionConfiguration(defaultRollback = false)
 public class AuthoControllerTest {
 
 	@Autowired
@@ -43,7 +49,7 @@ public class AuthoControllerTest {
 
 	@Autowired
 	private AuthorRepository authorRepository;
-	
+
 	@Autowired
 	private BookRepository bookRepository;
 
@@ -52,10 +58,13 @@ public class AuthoControllerTest {
 	private static Author author;
 	private static Author author2;
 
+	@Rule
+	public ExpectedException expectedException = ExpectedException.none();
+
 	@Before
 	public void setup() {
 		mockMvc = webAppContextSetup(wac).build();
-	
+
 		if (authorRepository.findByFirstName("takahasi") == null) {
 			authorRepository.deleteAll();
 			author = new Author();
@@ -92,9 +101,8 @@ public class AuthoControllerTest {
 		String jsonString = mapper.writerWithDefaultPrettyPrinter()
 				.writeValueAsString(author);
 		mockMvc.perform(
-				post("/as/authors").contentType(
-						MediaType.APPLICATION_JSON).content(
-						jsonString.getBytes())).andExpect(
+				post("/as/authors").contentType(MediaType.APPLICATION_JSON)
+						.content(jsonString.getBytes())).andExpect(
 				jsonPath("$.firstName", is("tanaka")));
 
 		mockMvc.perform(get("/as/authors")).andDo(print())
@@ -114,9 +122,8 @@ public class AuthoControllerTest {
 				.writeValueAsString(author3);
 
 		mockMvc.perform(
-				put("/as/authors/2").contentType(
-						MediaType.APPLICATION_JSON).content(
-						jsonString.getBytes())).andDo(print())
+				put("/as/authors/2").contentType(MediaType.APPLICATION_JSON)
+						.content(jsonString.getBytes())).andDo(print())
 				.andExpect(jsonPath("$.firstName", is("ikeda")));
 
 		mockMvc.perform(get("/as/authors"))
@@ -127,9 +134,8 @@ public class AuthoControllerTest {
 				.writerWithDefaultPrettyPrinter().writeValueAsString(author2);
 
 		mockMvc.perform(
-				put("/as/authors/2").contentType(
-						MediaType.APPLICATION_JSON).content(
-						jsonString2.getBytes())).andExpect(
+				put("/as/authors/2").contentType(MediaType.APPLICATION_JSON)
+						.content(jsonString2.getBytes())).andExpect(
 				jsonPath("$.firstName", is("kaneko")));
 	}
 
@@ -139,14 +145,46 @@ public class AuthoControllerTest {
 		author4.setFirstName("nakamura");
 		author4.setLastName("tarou");
 		authorService.create(author4);
-		mockMvc.perform(get("/as/authors")).andExpect(jsonPath("$", hasSize(3)));
-		
+		mockMvc.perform(get("/as/authors"))
+				.andExpect(jsonPath("$", hasSize(3)));
+
 		long id = authorRepository.findByFirstName("nakamura").getAuthorId();
 		mockMvc.perform(delete("/as/authors/" + id));
 
 		mockMvc.perform(get("/as/authors"))
 				.andExpect(jsonPath("$", hasSize(2)));
-		
+
 	}
 
+	@Test
+	public void testGetAuthors2() throws Exception {
+		mockMvc.perform(get("/as/author")).andExpect(status().isNotFound());
+	}
+
+	@Test
+	public void testGetAuthor2() throws Exception {
+		mockMvc.perform(get("/as/authors/abc")).andExpect(
+				status().isBadRequest());
+	}
+
+	@Test
+	public void testPostAuthor2() throws Exception {
+		mockMvc.perform(post("/as/authors")).andExpect(
+				status().isUnsupportedMediaType());
+	}
+
+	@Test
+	public void testPutAuthor2() throws Exception {
+		mockMvc.perform(put("/as/authors")).andExpect(
+				status().isMethodNotAllowed());
+	}
+
+	@Test
+	public void testDeleteAuthor2() throws Exception {
+
+		expectedException.expect(Exception.class);
+		expectedException.expectMessage("There were 2 errors");
+		mockMvc.perform(delete("/as/authors/10"));
+
+	}
 }
