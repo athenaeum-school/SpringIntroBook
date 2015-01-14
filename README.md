@@ -30,14 +30,14 @@ amqpApplication起動方法
 ------
 1. SpringIntroBook/Ch5/amqpをダウンロード
 2. mongoDBを起動
-```mongoDb
-% mongod
-```
+  ```mongoDb
+  % mongod
+  ```
 3. サーバーを起動(別のコマンドプロンプト）
-```node
-% node server.js
-```
+  ```node
+  % node server.js
+  ```
 4. サーバーにアクセス
-```server
-% http://localhost:9100/
-```
+  ```server
+  % http://localhost:9100/
+  ```
