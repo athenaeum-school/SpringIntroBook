@@ -3,10 +3,10 @@ SpringIntroBook
 
 LibraryApplication起動方法
 ------
-1. SpringIntroBook/Ch4/SpringBoot/LibraryApplicationをダウンロード
-2. アプリケーションを起動
+* SpringIntroBook/Ch4/SpringBoot/LibraryApplicationをダウンロード
+* アプリケーションを起動
 
-####【STSの場合】
+#### 【STSの場合】
 
 ```sts
 <Run> ⇒ <Run As> ⇒ <Spring Boot App>
@@ -18,26 +18,29 @@ LibraryApplication起動方法
 % gradle bootRun
 ```
 
-####【javaコマンドの場合】
+#### 【javaコマンドの場合】
 ```java
 % java -jar build/libs/LibraryApplication-0.0.1-SNAPSHOT.jar
 ```
 
-3. SpringIntroBook/Ch5/LibraryApplicationをダウンロード
-4. index.htmlをブラウザで開く
+* SpringIntroBook/Ch5/LibraryApplicationをダウンロード
+* index.htmlをブラウザで開く
 
 amqpApplication起動方法
 ------
-1. SpringIntroBook/Ch5/amqpをダウンロード
-2. mongoDBを起動
-  ```mongoDb
-  % mongod
-  ```
-3. サーバーを起動(別のコマンドプロンプト）
-  ```node
-  % node server.js
-  ```
-4. サーバーにアクセス
-  ```server
-  % http://localhost:9100/
-  ```
+* SpringIntroBook/Ch5/amqpをダウンロード
+* mongoDBを起動
+
+```mongoDb
+% mongod
+```
+
+* サーバーを起動(別のコマンドプロンプト）
+
+```node
+% node server.js
+```
+
+* サーバーにアクセス
+
+[http://localhost:9100](http://localhost:9100)
