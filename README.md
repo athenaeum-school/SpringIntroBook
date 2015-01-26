@@ -44,3 +44,9 @@ amqpApplication起動方法
 * サーバーにアクセス
 
 [http://localhost:9100](http://localhost:9100)
+
+lombok導入手順
+------
+* [http://projectlombok.org/](http://projectlombok.org/)のサイトよりLombok.jarをダウンロード
+* Lombok.jarをダブルクリックし、インストーラを起動
+* 現在使用しているEclipseを選択して、「Install / Update」ボタンをクリック
