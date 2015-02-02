@@ -4,6 +4,7 @@ SpringIntroBook
 Springで作るEnterprise RESTアプリケーション
 ------
 * 出版ステータス：入稿済み
+* URL：http://www.amazon.co.jp/gp/product/B00SXN3QGG?*Version*=1&*entries*=0
 
 #### 目次
 * 本書の目的	5
